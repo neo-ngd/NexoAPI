@@ -1,6 +1,7 @@
 ﻿using Microsoft.CodeAnalysis.Elfie.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Neo;
+using Neo.Extensions;
 using Neo.IO;
 using Neo.Network.RPC;
 using Neo.SmartContract;
@@ -78,8 +79,13 @@ namespace NexoAPI
             var parameterHexString = Encoding.UTF8.GetBytes(message).ToHexString();
             var lengthHex = Num2VarInt(parameterHexString.Length / 2);
             var messageHex = "000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000" +
-        lengthHex + parameterHexString;
-            var tx = new Neo.Network.P2P.Payloads.Transaction();
+                lengthHex + parameterHexString;
+            var tx = new Neo.Network.P2P.Payloads.Transaction
+            {
+                Signers = Array.Empty<Neo.Network.P2P.Payloads.Signer>(),
+                Attributes = Array.Empty<Neo.Network.P2P.Payloads.TransactionAttribute>(),
+                Witnesses = Array.Empty<Neo.Network.P2P.Payloads.Witness>()
+            };
             var reader = new MemoryReader(messageHex.HexToBytes());
             tx.DeserializeUnsigned(ref reader);
             return tx;

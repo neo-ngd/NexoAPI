@@ -1,6 +1,7 @@
 ﻿using Akka.Util.Internal;
 using Microsoft.EntityFrameworkCore;
 using Neo;
+using Neo.Extensions;
 using Neo.Json;
 using Neo.Network.RPC.Models;
 using Neo.VM;
