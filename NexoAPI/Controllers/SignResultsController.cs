@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Neo;
+using Neo.Extensions;
 using NexoAPI.Data;
 using NexoAPI.Models;
 

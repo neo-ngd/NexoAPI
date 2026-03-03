@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Neo;
 using Neo.Cryptography;
+using Neo.Extensions;
 using Neo.IO;
 using Neo.SmartContract;
 using Neo.Wallets;
