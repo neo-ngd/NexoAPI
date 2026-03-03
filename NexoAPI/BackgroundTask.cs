@@ -1,4 +1,4 @@
-﻿using Akka.Util.Internal;
+using Akka.Util.Internal;
 using Microsoft.EntityFrameworkCore;
 using Neo;
 using Neo.Extensions;
@@ -71,7 +71,7 @@ namespace NexoAPI
                                         var additionalSignerScript = _context.Account.First(p => p.Address == additionalSigner.Signer.Address).GetScript();
                                         rawTx.Witnesses = rawTx.Witnesses.Append(new Neo.Network.P2P.Payloads.Witness()
                                         {
-                                            InvocationScript = null,
+                                            InvocationScript = ReadOnlyMemory<byte>.Empty,
                                             VerificationScript = additionalSignerScript
                                         }).ToArray();
                                     }

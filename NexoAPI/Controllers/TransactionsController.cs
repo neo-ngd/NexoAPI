@@ -1,4 +1,4 @@
-﻿using Akka.Actor;
+using Akka.Actor;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Neo;
@@ -468,7 +468,7 @@ namespace NexoAPI.Controllers
                 {
                     new Neo.Network.P2P.Payloads.Witness()
                     {
-                        InvocationScript = null,
+                        InvocationScript = ReadOnlyMemory<byte>.Empty,
                         VerificationScript = account.GetScript()
                     }
                 };
@@ -482,12 +482,12 @@ namespace NexoAPI.Controllers
                 {
                     new Neo.Network.P2P.Payloads.Witness()
                     {
-                        InvocationScript = null,
+                        InvocationScript = ReadOnlyMemory<byte>.Empty,
                         VerificationScript = script
                     },
                     new Neo.Network.P2P.Payloads.Witness()
                     {
-                        InvocationScript = null,
+                        InvocationScript = ReadOnlyMemory<byte>.Empty,
                         VerificationScript = account.GetScript()
                     }
                 };
@@ -499,8 +499,8 @@ namespace NexoAPI.Controllers
                     result = result.Append(
                         new Neo.Network.P2P.Payloads.Witness()
                         {
-                            InvocationScript = null,
-                            VerificationScript = null
+                            InvocationScript = ReadOnlyMemory<byte>.Empty,
+                            VerificationScript = ReadOnlyMemory<byte>.Empty
                         }).ToArray();
                 }
                 else
@@ -509,7 +509,7 @@ namespace NexoAPI.Controllers
                     result = result.Append(
                         new Neo.Network.P2P.Payloads.Witness()
                         {
-                            InvocationScript = null,
+                            InvocationScript = ReadOnlyMemory<byte>.Empty,
                             VerificationScript = additionalSignerScript
                         }).ToArray();
                 }
